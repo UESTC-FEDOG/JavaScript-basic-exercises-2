@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .vq {
+            margin-right: 10px;
+            display: inline-block;
+            color: white;
+            background-color: black;
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button data-type="unshift">左侧入</button>
+        <button data-type="push">右侧入</button>
+        <button data-type="shift">左侧出</button>
+        <button data-type="pop">右侧出</button>
+        <button data-type="sort">排序</button>
+        <input type="text" id="input">
+    </div>
+    <div id="canvas"></div>
+    <script src="vsqueue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
