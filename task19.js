@@ -2,6 +2,7 @@
 	function queue() {
 		this.array = [];
 		this.ele = document.getElementById('chart');
+		this.timeout = -500;
 	}
 	queue.prototype = {
 		constructor: queue,
@@ -58,8 +59,7 @@
 			var i = left,
 				j = right,
 				temp = array[left],
-				self = this,
-				timeout  = -500;
+				self = this;
 			while(i != j) {
 				while(array[j] >= temp && i < j) j--;
 				while(array[i] <= temp && i < j) i++;
@@ -73,10 +73,9 @@
 			array[i] = temp;
 			(function(array) {
 				var array = array.slice();
-				console.log(array);
 			setTimeout(function(){
 				self.render(array.slice());
-			}, timeout += 1000);
+			}, self.timeout += 1000);
 			})(array)
 			this.sort(array, left, i - 1);
 			this.sort(array, i + 1, right);
@@ -90,7 +89,6 @@
 			if(item.value == 'shift' || item.value == 'pop') queue[item.value]();
 			else if (item.value == 'sort') {
 				queue[item.value](queue.array, 0, queue.array.length - 1);
-				console.log(queue.array);
 			}else {
 				if(isNaN(num)) {
 					alert('You must input number');
